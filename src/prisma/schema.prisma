@@ -1,0 +1,37 @@
+datasource db {
+    provider = "mongodb"
+    url      = env("DB_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum TaskStatus {
+    TODO
+    INPROGRESS
+    DONE
+}
+
+model User {
+    id                               String    @id @default(auto()) @map("_id") @db.ObjectId
+    email                            String    @unique
+    preferredFirstName               String?
+    firstName                        String
+    lastName                         String
+    password                         String
+    activationToken                  String?
+    passwordResetToken               String?
+    passwordResetTokenExpirationDate DateTime?
+    createdAt                        DateTime  @default(now())
+    updatedAt                        DateTime  @updatedAt
+    tasks                            Tasks[]
+}
+
+type Tasks {
+    id          String
+    title       String
+    description String?
+    due         DateTime
+    status      TaskStatus
+}

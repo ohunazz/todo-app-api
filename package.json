@@ -3,8 +3,9 @@
     "version": "1.0.0",
     "description": "To-Do",
     "main": "index.js",
+    "type": "module",
     "scripts": {
-        "start:dev": "nodemon index.js",
+        "start:dev": "nodemon src/index.js",
         "start": "node index.js",
         "prisma:g": "npx prisma generate --schema=./src/prisma/schema.prisma",
         "db:p": "npx prisma db push --schema=./src/prisma/schema.prisma "
