@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "start:dev": "nodemon src/index.js",
-        "start": "node index.js",
+        "start": "node src/index.js",
         "prisma:g": "npx prisma generate --schema=./src/prisma/schema.prisma",
         "db:p": "npx prisma db push --schema=./src/prisma/schema.prisma "
     },
@@ -25,5 +25,8 @@
     },
     "devDependencies": {
         "prisma": "^5.5.2"
+    },
+    "engines": {
+        "node": "20.5.1"
     }
 }
